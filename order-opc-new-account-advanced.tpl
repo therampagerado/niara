@@ -5,6 +5,7 @@
     <fieldset>
       <h3 class="page-subheading">{l s='Already registered?'}</h3>
       <a href="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" id="openLoginFormBlock">&raquo; {l s='Click here'}</a>
+      <a href="#" id="closeLoginFormBlock" style="display:none;">&laquo; {l s='Back'}</a>
       <div id="login_form_content" style="display:none;">
 
         <div id="opc_login_errors" class="alert alert-danger" style="display:none;"></div>
@@ -49,6 +50,9 @@
           </div>
         </div>
         <div id="opc_account_form" class="unvisible">
+          <p class="opc-button">
+            <a href="#" class="btn btn-default" id="opc_backToAccountChoice"><i class="icon icon-chevron-left"></i> {l s='Back'}</a>
+          </p>
           {$HOOK_CREATE_ACCOUNT_TOP}
 
           <div id="opc_account_errors" class="alert alert-danger" style="display:none;"></div>

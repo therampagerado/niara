@@ -62,6 +62,7 @@
     {addJsDefL name=txtInvoiceAddress}{l s='Invoice address' js=1}{/addJsDefL}
     {addJsDefL name=txtModifyMyAddress}{l s='Modify my address' js=1}{/addJsDefL}
     {addJsDefL name=txtInstantCheckout}{l s='Instant checkout' js=1}{/addJsDefL}
+    {addJsDefL name=txtNewCustomer}{l s='New Customer' js=1}{/addJsDefL}
     {addJsDefL name=txtSelectAnAddressFirst}{l s='Please start by selecting an address.' js=1}{/addJsDefL}
     {addJsDefL name=txtFree}{l s='Free' js=1}{/addJsDefL}
 
