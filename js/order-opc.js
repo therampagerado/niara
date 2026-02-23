@@ -11,19 +11,17 @@ $(document).ready(function() {
   var showOpcAccountChoiceFromAccountForm = function() {
     resetOpcAccountChoiceState();
     $('#opc_invoice_address').hide();
-    $('#opc_account_form').stop(true, true).slideUp('slow', function() {
-      $('#opc_account_choice').hide().stop(true, true).slideDown('slow');
-    });
+    $('#opc_account_choice').show();
+    $('#opc_account_form').stop(true, true).slideUp('slow');
   };
 
   var showOpcAccountChoiceFromLoginForm = function() {
     resetOpcAccountChoiceState();
     $('#opc_invoice_address').hide();
+    $('#opc_account_form').hide();
+    $('#opc_account_choice').show();
     $('#login_form_content').stop(true, true).slideUp('slow', function() {
-      $('#new_account_form').stop(true, true).slideDown('slow', function() {
-        $('#opc_account_form').hide();
-        $('#opc_account_choice').hide().stop(true, true).slideDown('slow');
-      });
+      $('#new_account_form').stop(true, true).slideDown('slow');
     });
   };
 
