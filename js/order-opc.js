@@ -1,14 +1,30 @@
 $(document).ready(function() {
   var defaultNewAccountTitle = $.trim($('#new_account_title').text());
 
-  var showOpcAccountChoice = function() {
-    $('#new_account_form').show();
-    $('#opc_account_choice').show();
-    $('#opc_account_form, #opc_invoice_address, #login_form_content').hide();
+  var resetOpcAccountChoiceState = function() {
     $('#openLoginFormBlock').show();
     $('#opc_login_errors, #opc_account_errors').hide().html('');
     $('#new_account_title').html(defaultNewAccountTitle);
     $('#submitGuestAccount').attr({id: 'submitAccount', name: 'submitAccount'});
+  };
+
+  var showOpcAccountChoiceFromAccountForm = function() {
+    resetOpcAccountChoiceState();
+    $('#opc_invoice_address').hide();
+    $('#opc_account_form').stop(true, true).slideUp('slow', function() {
+      $('#opc_account_choice').hide().stop(true, true).slideDown('slow');
+    });
+  };
+
+  var showOpcAccountChoiceFromLoginForm = function() {
+    resetOpcAccountChoiceState();
+    $('#opc_invoice_address').hide();
+    $('#login_form_content').stop(true, true).slideUp('slow', function() {
+      $('#new_account_form').stop(true, true).slideDown('slow', function() {
+        $('#opc_account_form').hide();
+        $('#opc_account_choice').hide().stop(true, true).slideDown('slow');
+      });
+    });
   };
 
   // GUEST CHECKOUT / NEW ACCOUNT MANAGEMENT
@@ -36,9 +52,14 @@ $(document).ready(function() {
         $('#submitAccount').attr({id: 'submitGuestAccount', name: 'submitGuestAccount'});
       });
 
-      $(document).on('click', '#opc_back_to_account_choice, #opc_back_to_account_choice_login', function(e) {
+      $(document).on('click', '#opc_back_to_account_choice', function(e) {
         e.preventDefault();
-        showOpcAccountChoice();
+        showOpcAccountChoiceFromAccountForm();
+      });
+
+      $(document).on('click', '#opc_back_to_account_choice_login', function(e) {
+        e.preventDefault();
+        showOpcAccountChoiceFromLoginForm();
       });
     } else if (isGuest) {
       $('.is_customer_param').hide();
