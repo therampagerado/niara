@@ -1,4 +1,14 @@
 $(document).ready(function() {
+
+  function backToAccountChoice() {
+    $('#opc_account_form').slideUp('slow', function() {
+      $('#opc_account_choice').slideDown('slow');
+    });
+    $('#opc_invoice_address').hide();
+    $('#new_account_title').html($('#new_account_title').data('default-title'));
+    $('#submitGuestAccount').attr({id: 'submitAccount', name: 'submitAccount'});
+    $('#is_new_customer').val('0');
+  }
   // GUEST CHECKOUT / NEW ACCOUNT MANAGEMENT
   if ((typeof isLogged == 'undefined' || !isLogged) || (typeof isGuest !== 'undefined' && isGuest)) {
     if (guestCheckoutEnabled && !isLogged && !isGuest) {
@@ -41,6 +51,16 @@ $(document).ready(function() {
       $(this).hide();
       $('#login_form_content').slideDown('slow');
       $('#new_account_form').slideUp('slow');
+    });
+    $(document).on('click', '#hideLoginFormBlock', function(e) {
+      e.preventDefault();
+      $('#login_form_content').slideUp('slow');
+      $('#openLoginFormBlock').show();
+      $('#new_account_form').slideDown('slow');
+    });
+    $(document).on('click', '#opc_backToAccountChoice', function(e) {
+      e.preventDefault();
+      backToAccountChoice();
     });
     // LOGIN FORM SENDING
     $(document).on('click', '#SubmitLogin', function(e) {

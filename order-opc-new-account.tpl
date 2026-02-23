@@ -8,6 +8,11 @@
       <div id="login_form_content" style="display:none;">
 
         <div id="opc_login_errors" class="alert alert-danger" style="display:none;"></div>
+        <p class="opc-back-link">
+          <button type="button" id="hideLoginFormBlock" class="btn btn-link">
+            <i class="icon icon-chevron-left"></i> {l s='Back'}
+          </button>
+        </p>
 
         <div class="form-group">
           <label for="login_email">{l s='Email address'}</label>
@@ -28,7 +33,7 @@
   <form action="{$link->getPageLink('authentication', true)|escape:'html':'UTF-8'}" method="post" id="new_account_form" class="std" autocomplete="on" autofill="on">
     <fieldset>
       <div class="box">
-        <h3 id="new_account_title" class="page-subheading">{l s='New Customer'}</h3>
+        <h3 id="new_account_title" class="page-subheading" data-default-title="{l s='New Customer'}">{l s='New Customer'}</h3>
         <div id="opc_account_choice" class="row">
           <div class="col-xs-12 col-md-6">
             <p class="title_block">{l s='Instant Checkout'}</p>
@@ -49,6 +54,11 @@
           </div>
         </div>
         <div id="opc_account_form" class="unvisible">
+          <p class="opc-back-link">
+            <button type="button" id="opc_backToAccountChoice" class="btn btn-link">
+              <i class="icon icon-chevron-left"></i> {l s='Back'}
+            </button>
+          </p>
           {$HOOK_CREATE_ACCOUNT_TOP}
 
 
