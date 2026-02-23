@@ -2,6 +2,7 @@ $(document).ready(function() {
   var defaultNewAccountTitle = $.trim($('#new_account_title').text());
 
   var showOpcAccountChoice = function() {
+    $('#new_account_form').show();
     $('#opc_account_choice').show();
     $('#opc_account_form, #opc_invoice_address, #login_form_content').hide();
     $('#openLoginFormBlock').show();
