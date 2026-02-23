@@ -34,6 +34,14 @@ $(document).ready(function() {
       $('#opc_invoice_address').hide();
     }
 
+    function showOpcAccountChoice() {
+      $('#opc_account_form, #opc_invoice_address').hide();
+      $('#login_form_content').hide();
+      $('#new_account_form').show();
+      $('#openLoginFormBlock').show();
+      $('#opc_account_choice').show();
+    }
+
     // LOGIN FORM
     $(document).on('click', '#openLoginFormBlock', function(e) {
       e.preventDefault();
@@ -41,6 +49,16 @@ $(document).ready(function() {
       $(this).hide();
       $('#login_form_content').slideDown('slow');
       $('#new_account_form').slideUp('slow');
+    });
+
+    $(document).on('click', '#opc_back_to_account_choice_from_login', function(e) {
+      e.preventDefault();
+      showOpcAccountChoice();
+    });
+
+    $(document).on('click', '#opc_back_to_account_choice', function(e) {
+      e.preventDefault();
+      showOpcAccountChoice();
     });
     // LOGIN FORM SENDING
     $(document).on('click', '#SubmitLogin', function(e) {

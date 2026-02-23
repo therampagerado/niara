@@ -8,6 +8,11 @@
       <div id="login_form_content" style="display:none;">
 
         <div id="opc_login_errors" class="alert alert-danger" style="display:none;"></div>
+        <p class="opc-back-link">
+          <button type="button" id="opc_back_to_account_choice_from_login" class="btn btn-default btn-sm">
+            <i class="icon icon-chevron-left"></i> {l s='Back'}
+          </button>
+        </p>
 
         <div class="form-group">
           <label for="login_email">{l s='Email address'}</label>
@@ -50,6 +55,12 @@
         </div>
         <div id="opc_account_form" class="unvisible">
           {$HOOK_CREATE_ACCOUNT_TOP}
+
+          <p class="opc-back-link">
+            <button type="button" id="opc_back_to_account_choice" class="btn btn-default btn-sm">
+              <i class="icon icon-chevron-left"></i> {l s='Back'}
+            </button>
+          </p>
 
 
 
